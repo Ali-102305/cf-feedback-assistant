@@ -1,0 +1,30 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cf-feedback-assistant",
+  "main": "src/index.js",
+  "compatibility_date": "2026-01-28",
+  "observability": {
+    "enabled": true
+  },
+  "kv_namespaces": [
+    {
+      "binding": "INSIGHTS_CACHE",
+      "id": "1d4682e5d10f492bba1a44da8bc77163"
+    }
+  ],
+  "ai": {
+    "binding": "AI"
+  },
+  "d1_databases": [
+    {
+      "binding": "feedback_db",
+      "database_name": "feedback_db",
+      "database_id": "2bfb62f3-3030-4abe-ba66-829b53fb9b04",
+      "remote": true
+    }
+  ]
+}
